@@ -35,7 +35,7 @@ Provision the following infrastructure components with Terraform:
 
 ## 📁 Project Structure
 
-````bash
+```bash
 terraform-agricloud/
 ├── main.tf              # Core infrastructure: VPC, EC2, S3, SGs
 ├── variables.tf         # All input variables with types/defaults
@@ -44,22 +44,74 @@ terraform-agricloud/
 ├── provider.tf          # AWS provider and region config
 ├── backend.tf           # (Optional) Remote state config (e.g., S3)
 └── README.md            # Project overview and usage
+```
 
+---
 
-##  📦 Usage
+## 🛡️ Safe Mode: Free Tier-Friendly Terraform Setup
+
+This project is designed to be safely cloned and deployed by beginners or learners using the **AWS Free Tier**. It provisions minimal resources that stay within the free limits provided by AWS to avoid unexpected charges.
+
+### ✅ Why It's Safe:
+
+- **Stays within AWS Free Tier limits**
+- **Uses only free-tier eligible services**
+- **Can be fully destroyed after use**
+- **Ideal for beginner Terraform + AWS testing**
+
+### 🧱 What This Setup Creates:
+
+| Resource             | Description                                   |
+| -------------------- | --------------------------------------------- |
+| **VPC**              | Custom virtual network (free)                 |
+| **Public Subnet**    | Hosts the EC2 instance                        |
+| **EC2 Instance**     | `t2.micro` or `t3.micro` (free-tier eligible) |
+| **Security Group**   | SSH (port 22) access only                     |
+| **Internet Gateway** | For public internet access to EC2             |
+
+### ❌ What It Avoids:
+
+- ❌ No NAT Gateway (which incurs cost)
+- ❌ No additional EBS volumes
+- ❌ No data transfer-heavy services
+
+### 🧼 Clean-Up Reminder
+
+Always run the following command to **destroy all resources and avoid billing**:
+
+```bash
+terraform destroy -var-file="terraform.tfvars"
+```
+
+This ensures a full teardown of all provisioned infrastructure.
+
+> ℹ️ You still need a valid AWS account with Free Tier eligibility and an existing EC2 key pair.
+
+---
+
+## 📦 Usage
 
 1. **Initialize Terraform:**
+
    ```bash
    terraform init
+   ```
 
-2. Plan the deployment:
-terraform plan -var-file="terraform.tfvars"
+2. **Plan the deployment:**
 
-3. Apply the configuration:
-terraform apply -var-file="terraform.tfvars"
+   ```bash
+   terraform plan -var-file="terraform.tfvars"
+   ```
 
+3. **Apply the configuration:**
 
-📌 Author
-Juzantino Junadi
+   ```bash
+   terraform apply -var-file="terraform.tfvars"
+   ```
+
+---
+
+## 📌 Author
+
+**Juzantino Junadi**
 Cloud Engineer | Full Stack Developer | AI/IoT Enthusiast
-````

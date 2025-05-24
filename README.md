@@ -4,6 +4,10 @@ This project sets up the foundational **AWS infrastructure** for an agritech pla
 
 ---
 
+## 🖼️ Infrastructure Diagram
+
+![AgriCloud Infrastructure Diagram](./assets/agricloud-architecture.png)
+
 ## 🚀 Objective (Phase 1)
 
 Provision the following infrastructure components with Terraform:
@@ -17,6 +21,8 @@ Provision the following infrastructure components with Terraform:
 - ✅ S3 Bucket (for data storage/logs)
 - ✅ IAM Role for EC2 access
 - ✅ CloudWatch Agent (optional future step)
+- ✅ Application Load Balancer (ALB) for traffic distribution
+- ✅ Auto Scaling Group (ASG) for failover
 
 ---
 
@@ -30,6 +36,8 @@ Provision the following infrastructure components with Terraform:
 | S3        | Object Storage                |
 | IAM       | Access Control                |
 | VPC       | Networking                    |
+| ALB       | Load Balancing                |
+| ASG       | Self-healing & scaling        |
 
 ---
 
@@ -37,7 +45,7 @@ Provision the following infrastructure components with Terraform:
 
 ```bash
 terraform-agricloud/
-├── main.tf              # Core infrastructure: VPC, EC2, S3, SGs
+├── main.tf              # Core infrastructure: VPC, EC2, S3, SGs, ALB, ASG
 ├── variables.tf         # All input variables with types/defaults
 ├── outputs.tf           # Outputs like EC2 IP, S3 bucket name
 ├── terraform.tfvars     # Environment-specific values (ignored by Git)
@@ -89,7 +97,7 @@ This ensures a full teardown of all provisioned infrastructure.
 
 ---
 
-## 📦 Usage
+## 🛎️ Usage
 
 1. **Initialize Terraform:**
 

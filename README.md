@@ -95,6 +95,20 @@ This ensures a full teardown of all provisioned infrastructure.
 
 > ℹ️ You still need a valid AWS account with Free Tier eligibility and an existing EC2 key pair.
 
+## 🔐 EC2 Key Pair Setup
+
+To successfully provision an EC2 instance, you must supply an existing **AWS EC2 Key Pair** name. This key allows you to SSH into the server.
+
+### ✅ Option 1: Use an Existing Key Pair
+
+1. Go to your **AWS Console**
+2. Navigate to **EC2 Dashboard → Key Pairs**
+3. Copy the name of an existing key pair (e.g., `my-mac-key`)
+4. In your `terraform.tfvars`, set:
+
+````hcl
+key_name = "my-mac-key"
+
 ---
 
 ## 🛎️ Usage
@@ -103,7 +117,7 @@ This ensures a full teardown of all provisioned infrastructure.
 
    ```bash
    terraform init
-   ```
+````
 
 2. **Plan the deployment:**
 

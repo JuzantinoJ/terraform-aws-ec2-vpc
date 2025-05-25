@@ -20,3 +20,8 @@ variable "key_name" {
     description = "EC2 key pair name (must exist in your AWS account)"
     type = string
 }
+
+variable "environment" {
+    description = "Environment"
+    type = string
+}

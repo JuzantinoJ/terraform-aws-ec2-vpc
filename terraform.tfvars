@@ -1,0 +1,5 @@
+project_name  = "agricloud"
+aws_region    = "ap-southeast-1"
+instance_type = "t2.micro"
+key_name      = "agricloud-dev-key"
+environment   = "dev"

@@ -1,0 +1,23 @@
+# Local Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Terraform provider and module caches
+.terraform/
+
+# Sensitive variable definitions
+terraform.tfvars
+*.tfvars
+
+# Crash logs
+crash.log
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# IDE or system files
+.DS_Store
+.vscode/

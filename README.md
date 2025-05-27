@@ -131,6 +131,18 @@ key_name = "my-mac-key"
    terraform apply -var-file="terraform.tfvars"
    ```
 
+4. **Switch Environment:**
+   - **terraform plan lets you preview what Terraform is going to do without actually making any changes.**
+   ```bash
+   ./switch_env.sh dev
+    terraform plan      # picks up terraform.tfvars (now using dev)
+   ```
+   - **terraform apply executes the actions you previewed in the plan.**
+   ```bash
+   ./switch_env.sh prod
+    terraform apply     # now using prod vars
+   ```
+
 ---
 
 ## 📌 Author
